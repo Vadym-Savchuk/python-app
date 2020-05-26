@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo " ============== start building image =================="
                 dir ('cicd-buzz') {
-                	sh 'python app.py'
+                	sh 'python3 app.py'
                 }
             }
         }
