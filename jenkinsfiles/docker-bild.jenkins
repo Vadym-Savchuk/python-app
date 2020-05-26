@@ -1,0 +1,24 @@
+#!groovy
+// Run docker build
+properties([disableConcurrentBuilds()])
+
+pipeline {
+    agent {
+        label 'master'
+        }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
+        ansiColor('xterm')
+    }
+    stages {
+        stage("docker bild") {
+            steps {
+                echo " ============== start docker bild =================="
+                dir ('cicd-buzz') {
+                	sh 'docker build -t python-app:latest'
+                }
+            }
+        }
+    }
+}
