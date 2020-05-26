@@ -16,7 +16,7 @@ pipeline {
             steps {
                 echo " ============== start docker bild =================="
                 dir ('cicd-buzz') {
-                	sh 'docker build -t python-app:latest'
+                	sh 'docker build -t python-app:latest .'
                 }
             }
         }
