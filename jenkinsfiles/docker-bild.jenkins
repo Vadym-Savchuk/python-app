@@ -20,5 +20,11 @@ pipeline {
                 }
             }
         }
+        stage("docker run") {
+            steps {
+                echo " ============== start docker =================="
+                sh 'docker run -p 5000:5000 --rm -it cicd-buzz'
+            }
+        }
     }
 }
